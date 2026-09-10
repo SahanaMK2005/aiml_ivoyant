@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Study Assistant</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🤖 AI Study Assistant</h1>
+
+        <p class="subtitle">
+            Learn any AI topic and test your knowledge!
+        </p>
+
+
+        <!-- Topic Input -->
+
+        <div class="input-section">
+
+            <input
+                type="text"
+                id="topic"
+                placeholder="Enter a topic"
+            >
+
+            <button onclick="studyTopic()">
+                Generate
+            </button>
+
+        </div>
+
+
+        <!-- Loading Message -->
+
+        <p id="loading"></p>
+
+
+        <!-- Explanation Section -->
+
+        <div id="explanation-section" class="result-section">
+
+            <h2>📚 Explanation</h2>
+
+            <div id="explanation"></div>
+
+        </div>
+
+
+        <!-- Quiz Section -->
+
+        <div id="quiz-section" class="result-section">
+
+            <h2>📝 Quiz</h2>
+
+            <div id="quiz"></div>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        async function studyTopic() {
+
+            const topic = document.getElementById("topic").value;
+
+            const explanationDiv =
+                document.getElementById("explanation");
+
+            const quizDiv =
+                document.getElementById("quiz");
+
+            const loading =
+                document.getElementById("loading");
+
+
+            // Check empty input
+
+            if (topic.trim() === "") {
+
+                alert("Please enter a topic!");
+
+                return;
+
+            }
+
+
+            // Clear previous results
+
+            explanationDiv.innerHTML = "";
+
+            quizDiv.innerHTML = "";
+
+            loading.innerText =
+                "Generating explanation and quiz...";
+
+
+            try {
+
+                // Call FastAPI API
+
+                const response = await fetch(
+                    `/study?topic=${encodeURIComponent(topic)}`
+                );
+
+
+                const data = await response.json();
+
+
+                // Remove loading message
+
+                loading.innerText = "";
+
+
+                // Display Explanation
+
+                explanationDiv.innerHTML =
+                    data.explanation.replace(/\n/g, "<br>");
+
+
+                // Display Quiz
+
+                data.quiz.forEach((questionData, index) => {
+
+                    const questionContainer =
+                        document.createElement("div");
+
+
+                    questionContainer.className =
+                        "quiz-question";
+
+
+                    // Question
+
+                    const question =
+                        document.createElement("h3");
+
+
+                    question.innerText =
+                        `Question ${index + 1}: ${questionData.question}`;
+
+
+                    questionContainer.appendChild(question);
+
+
+                    // Options
+
+                    questionData.options.forEach(option => {
+
+                        const button =
+                            document.createElement("button");
+
+
+                        button.innerText = option;
+
+                        button.className =
+                            "option-button";
+
+
+                        button.onclick = function () {
+
+                            checkAnswer(
+                                option,
+                                questionData.correct_answer,
+                                button,
+                                questionContainer
+                            );
+
+                        };
+
+
+                        questionContainer.appendChild(button);
+
+                    });
+
+
+                    // Feedback
+
+                    const feedback =
+                        document.createElement("p");
+
+
+                    feedback.className =
+                        "feedback";
+
+
+                    questionContainer.appendChild(feedback);
+
+
+                    quizDiv.appendChild(questionContainer);
+
+                });
+
+
+            }
+
+            catch (error) {
+
+                loading.innerText =
+                    "Error connecting to AI Study Assistant.";
+
+                console.error(error);
+
+            }
+
+        }
+
+
+
+        function checkAnswer(
+            selectedAnswer,
+            correctAnswer,
+            selectedButton,
+            questionContainer
+        ) {
+
+            const feedback =
+                questionContainer.querySelector(".feedback");
+
+
+            const buttons =
+                questionContainer.querySelectorAll(".option-button");
+
+
+            // Disable all options after selection
+
+            buttons.forEach(button => {
+
+                button.disabled = true;
+
+            });
+
+
+            // Check answer
+
+            if (selectedAnswer === correctAnswer) {
+
+                feedback.innerText =
+                    "✅ Correct! Great job!";
+
+                feedback.style.color =
+                    "green";
+
+            }
+
+            else {
+
+                feedback.innerText =
+                    "❌ Wrong! Try the next question.";
+
+                feedback.style.color =
+                    "red";
+
+
+                // Highlight correct answer
+
+                buttons.forEach(button => {
+
+                    if (
+                        button.innerText === correctAnswer
+                    ) {
+
+                        button.style.backgroundColor =
+                            "lightgreen";
+
+                    }
+
+                });
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

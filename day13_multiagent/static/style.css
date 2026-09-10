@@ -1,0 +1,181 @@
+/* General Page Styling */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+
+/* Main Container */
+
+.container {
+    width: 85%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Heading */
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+
+/* Input Section */
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+
+input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+.input-section button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #2563eb;
+    color: white;
+}
+
+
+.input-section button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* Result Sections */
+
+.result-section {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9fafb;
+}
+
+
+.result-section h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+
+/* Explanation */
+
+#explanation {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+
+/* Quiz Question */
+
+.quiz-question {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+
+.quiz-question h3 {
+    margin-top: 0;
+}
+
+
+/* Quiz Options */
+
+.option-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+.option-button:hover {
+    background-color: #e2e8f0;
+}
+
+
+/* Disabled Options */
+
+.option-button:disabled {
+    cursor: not-allowed;
+}
+
+
+/* Feedback */
+
+.feedback {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+
+/* Loading Message */
+
+#loading {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+
+    .input-section {
+        flex-direction: column;
+    }
+
+
+    .input-section button {
+        width: 100%;
+    }
+
+}
