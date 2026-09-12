@@ -1,0 +1,14 @@
+Name: Sahana
+
+Skills:
+Python, Machine Learning, Deep Learning, LangChain,
+RAG, FastAPI, ChromaDB, Prompt Engineering
+
+Experience:
+AI/ML Projects and internship experience.
+
+Education:
+Computer Science
+
+Preferred Role:
+AI Engineer
