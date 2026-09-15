@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HealthAssist AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <div class="app-container">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="logo">
+                    🩺
+                </div>
+
+                <div class="brand-info">
+
+                    <h1>
+                        HealthAssist AI
+                    </h1>
+
+                    <p>
+                        Health Information Assistant
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    AI Assistant
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="chat-container">
+
+
+            <!-- ================================================= -->
+            <!-- CHAT AREA -->
+            <!-- ================================================= -->
+
+            <div
+                id="chat-box"
+                class="chat-box"
+            >
+
+
+                <!-- ================= WELCOME ================= -->
+
+                <div
+                    id="welcome"
+                    class="welcome"
+                >
+
+                    <div class="welcome-icon">
+                        🩺
+                    </div>
+
+
+                    <h2>
+                        How can I help you today?
+                    </h2>
+
+
+                    <p>
+                        Ask HealthAssist AI about general health,
+                        nutrition, wellness, exercise, or medical
+                        information.
+                    </p>
+
+
+                    <!-- Suggested Questions -->
+
+                    <div class="suggestions">
+
+
+                        <button
+                            class="suggestion"
+                            onclick="useSuggestion('What is dehydration?')"
+                        >
+                            💧 What is dehydration?
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            onclick="useSuggestion('What are the benefits of regular exercise?')"
+                        >
+                            🏃 Benefits of exercise
+                        </button>
+
+
+                        <button
+                            class="suggestion"
+                            onclick="useSuggestion('What are common symptoms of dehydration?')"
+                        >
+                            💦 Symptoms of dehydration
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- CHAT INPUT -->
+            <!-- ================================================= -->
+
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Ask HealthAssist a question..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    id="send-button"
+                    type="button"
+                >
+                    Send
+                </button>
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- DISCLAIMER -->
+            <!-- ================================================= -->
+
+            <div class="disclaimer">
+
+                ⚠️ HealthAssist AI provides general educational
+                health information and does not replace advice
+                from a qualified healthcare professional.
+
+            </div>
+
+
+
+            <!-- ================================================= -->
+            <!-- DAY 16 - HALLUCINATION EVALUATION -->
+            <!-- ================================================= -->
+
+            <section class="evaluation-section">
+
+
+                <!-- ================= EVALUATION HEADER ================= -->
+
+                <div class="evaluation-header">
+
+                    <div>
+
+                        <h2>
+                            🧪Hallucination Evaluation
+                        </h2>
+
+
+                        <p>
+                            Test the underlying LLM with adversarial
+                            health-related prompts and evaluate its response.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= TEST CONTROLS ================= -->
+
+                <div class="evaluation-controls">
+
+
+                    <label for="test-select">
+                        Select Test Case
+                    </label>
+
+
+                    <select id="test-select">
+
+                        <option value="">
+                            Select a test...
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        id="run-evaluation-button"
+                        type="button"
+                    >
+                        Run Evaluation
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- ================= TEST DETAILS ================= -->
+
+                <div
+                    id="evaluation-details"
+                    class="evaluation-details"
+                    style="display: none;"
+                >
+
+
+                    <!-- Test ID -->
+
+                    <div class="evaluation-field">
+
+                        <span class="field-label">
+                            Test ID
+                        </span>
+
+
+                        <span
+                            id="evaluation-test-id"
+                            class="field-value"
+                        >
+                            -
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- Category -->
+
+                    <div class="evaluation-field">
+
+                        <span class="field-label">
+                            Category
+                        </span>
+
+
+                        <span
+                            id="evaluation-category"
+                            class="field-value"
+                        >
+                            -
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- Prompt -->
+
+                    <div class="evaluation-field full-width">
+
+                        <span class="field-label">
+                            Test Prompt
+                        </span>
+
+
+                        <div
+                            id="evaluation-prompt"
+                            class="evaluation-prompt"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Expected Behavior -->
+
+                    <div class="evaluation-field full-width">
+
+                        <span class="field-label">
+                            Expected Behavior
+                        </span>
+
+
+                        <div
+                            id="evaluation-expected"
+                            class="evaluation-prompt"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- AI RESPONSE -->
+                <!-- ================================================= -->
+
+                <div
+                    id="evaluation-response-container"
+                    class="evaluation-response-container"
+                    style="display: none;"
+                >
+
+
+                    <h3>
+                        🤖 AI Response
+                    </h3>
+
+
+                    <div
+                        id="evaluation-response"
+                        class="evaluation-response"
+                    >
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================================= -->
+                <!-- EVALUATION SUMMARY -->
+                <!-- ================================================= -->
+
+                <div class="evaluation-summary">
+
+
+                    <h3>
+                        📊 Evaluation Summary
+                    </h3>
+
+
+                    <div class="summary-grid">
+
+
+                        <!-- Total Tests -->
+
+                        <div class="summary-card">
+
+                            <span
+                                id="total-tests"
+                                class="summary-number"
+                            >
+                                10
+                            </span>
+
+
+                            <span class="summary-label">
+                                Total Tests
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Tested -->
+
+                        <div class="summary-card">
+
+                            <span
+                                id="tested-count"
+                                class="summary-number"
+                            >
+                                0
+                            </span>
+
+
+                            <span class="summary-label">
+                                Tested
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Failures -->
+
+                        <div class="summary-card">
+
+                            <span
+                                id="failure-count"
+                                class="summary-number"
+                            >
+                                0
+                            </span>
+
+
+                            <span class="summary-label">
+                                Failures
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- Hallucinations -->
+
+                        <div class="summary-card">
+
+                            <span
+                                id="hallucination-count"
+                                class="summary-number"
+                            >
+                                0
+                            </span>
+
+
+                            <span class="summary-label">
+                                Hallucinations
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="/static/script.js"></script>
+
+
+</body>
+
+</html>

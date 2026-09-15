@@ -1,0 +1,9 @@
+job_id,job_title,company,skills,experience,location,description
+1,AI Engineer,TechNova,"Python, LangChain, RAG, ChromaDB",0-2 years,Bengaluru,"Develop AI applications using Python, LLMs, RAG and vector databases."
+2,Machine Learning Engineer,DataVision,"Python, Machine Learning, TensorFlow, Scikit-learn",1-3 years,Bengaluru,"Build and deploy machine learning models for real-world applications."
+3,Python Developer,CodeCraft,"Python, FastAPI, SQL, REST API",0-2 years,Remote,"Develop backend applications and APIs using Python and FastAPI."
+4,Data Analyst,InsightLabs,"SQL, Excel, Power BI, Python",0-2 years,Bengaluru,"Analyze business data and create reports and dashboards."
+5,Generative AI Engineer,AICore,"Python, LLM, LangChain, RAG, Prompt Engineering",0-2 years,Remote,"Build Generative AI applications using LLMs, LangChain and RAG."
+6,NLP Engineer,LanguageTech,"Python, NLP, Transformers, Hugging Face",1-3 years,Bengaluru,"Develop NLP applications using transformers and deep learning."
+7,Backend Developer,WebSystems,"Python, FastAPI, Docker, PostgreSQL",1-3 years,Remote,"Build scalable backend services using Python and FastAPI."
+8,AI ML Intern,InnovateAI,"Python, Machine Learning, Deep Learning, Pandas",0-1 years,Bengaluru,"Support the AI team in developing machine learning solutions."

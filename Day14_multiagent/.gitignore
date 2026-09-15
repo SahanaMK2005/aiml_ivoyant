@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Uploaded resumes
+Day14_multiagent/data/uploaded_resume.pdf
+
+# Generated databases
+Day14_multiagent/database/candidates.db
+Day14_multiagent/database/chroma.sqlite3
+Day14_multiagent/database/
