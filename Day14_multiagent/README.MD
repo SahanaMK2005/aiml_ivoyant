@@ -88,3 +88,5 @@ Job Retrieval Agent
 Ranking Agent
         ↓
 Final Job Recommendations
+
+python -m streamlit run app.py
