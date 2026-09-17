@@ -1,0 +1,970 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #eef5f4;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   APPLICATION CONTAINER
+===================================================== */
+
+.app-container {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    background: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    padding: 20px 30px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: #ffffff;
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.logo {
+
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #e8f5f2;
+
+    border-radius: 15px;
+
+    font-size: 27px;
+}
+
+
+.brand-info h1 {
+
+    font-size: 23px;
+
+    color: #1f2937;
+}
+
+
+.brand-info p {
+
+    margin-top: 4px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    color: #374151;
+}
+
+
+.status-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+
+/* =====================================================
+   CHAT CONTAINER
+===================================================== */
+
+.chat-container {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 30px;
+}
+
+
+.chat-box {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 10px;
+}
+
+
+/* =====================================================
+   WELCOME SCREEN
+===================================================== */
+
+.welcome {
+
+    text-align: center;
+
+    margin-top: 80px;
+
+    padding: 20px;
+}
+
+
+.welcome-icon {
+
+    font-size: 52px;
+
+    margin-bottom: 18px;
+}
+
+
+.welcome h2 {
+
+    font-size: 29px;
+
+    color: #1f2937;
+
+    margin-bottom: 12px;
+}
+
+
+.welcome p {
+
+    max-width: 560px;
+
+    margin: auto;
+
+    color: #6b7280;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   SUGGESTIONS
+===================================================== */
+
+.suggestions {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+.suggestion {
+
+    padding: 11px 16px;
+
+    border: 1px solid #dbe4e3;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    color: #374151;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.suggestion:hover {
+
+    background: #edf7f5;
+
+    border-color: #9fcfc5;
+}
+
+
+/* =====================================================
+   CHAT MESSAGES
+===================================================== */
+
+.message {
+
+    display: flex;
+
+    margin-bottom: 18px;
+}
+
+
+.message.user {
+
+    justify-content: flex-end;
+}
+
+
+.message.ai {
+
+    justify-content: flex-start;
+}
+
+
+.message-content {
+
+    max-width: 72%;
+
+    padding: 14px 18px;
+
+    border-radius: 16px;
+
+    line-height: 1.6;
+
+    font-size: 15px;
+
+    white-space: pre-wrap;
+}
+
+
+.message.user .message-content {
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-bottom-right-radius: 5px;
+}
+
+
+.message.ai .message-content {
+
+    background: #f1f5f9;
+
+    color: #1f2937;
+
+    border-bottom-left-radius: 5px;
+}
+
+
+/* =====================================================
+   INPUT AREA
+===================================================== */
+
+.input-area {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding-top: 20px;
+}
+
+
+.input-area input {
+
+    flex: 1;
+
+    height: 52px;
+
+    padding: 0 18px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 13px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.input-area input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+.input-area button {
+
+    height: 52px;
+
+    padding: 0 25px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.input-area button:hover {
+
+    background: #1d4ed8;
+}
+
+
+.input-area button:disabled {
+
+    background: #9ca3af;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   DISCLAIMER
+===================================================== */
+
+.disclaimer {
+
+    text-align: center;
+
+    padding-top: 15px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+
+    color: #6b7280;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .header {
+
+        padding: 15px 18px;
+    }
+
+
+    .brand-info h1 {
+
+        font-size: 19px;
+    }
+
+
+    .status {
+
+        display: none;
+    }
+
+
+    .chat-container {
+
+        padding: 15px;
+    }
+
+
+    .welcome {
+
+        margin-top: 50px;
+    }
+
+
+    .welcome h2 {
+
+        font-size: 24px;
+    }
+
+
+    .message-content {
+
+        max-width: 88%;
+    }
+
+
+    .input-area button {
+
+        padding: 0 18px;
+    }
+
+}
+/* =====================================================
+   DAY 16 - HALLUCINATION EVALUATION
+===================================================== */
+
+.evaluation-section {
+
+    margin-top: 35px;
+
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+}
+
+
+.evaluation-header {
+
+    margin-bottom: 22px;
+}
+
+
+.evaluation-header h2 {
+
+    font-size: 21px;
+
+    color: #1f2937;
+
+    margin-bottom: 7px;
+}
+
+
+.evaluation-header p {
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   EVALUATION CONTROLS
+===================================================== */
+
+.evaluation-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+    flex-wrap: wrap;
+}
+
+
+.evaluation-controls label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+.evaluation-controls select {
+
+    flex: 1;
+
+    min-width: 240px;
+
+    height: 45px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+.evaluation-controls select:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+#run-evaluation-button {
+
+    height: 45px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#run-evaluation-button:hover {
+
+    background: #1d4ed8;
+}
+
+
+#run-evaluation-button:disabled {
+
+    background: #9ca3af;
+
+    cursor: not-allowed;
+}
+
+
+/* =====================================================
+   TEST DETAILS
+===================================================== */
+
+.evaluation-details {
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.evaluation-field {
+
+    padding: 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+}
+
+
+.evaluation-field.full-width {
+
+    grid-column: 1 / -1;
+}
+
+
+.field-label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    color: #6b7280;
+}
+
+
+.field-value {
+
+    font-size: 14px;
+
+    color: #1f2937;
+
+    font-weight: 500;
+}
+
+
+.evaluation-prompt {
+
+    color: #374151;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+
+
+/* =====================================================
+   AI RESPONSE
+===================================================== */
+
+.evaluation-response-container {
+
+    margin-top: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+.evaluation-response-container h3 {
+
+    margin-bottom: 10px;
+
+    font-size: 16px;
+
+    color: #1f2937;
+}
+
+
+.evaluation-response {
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   EVALUATION RESULT
+===================================================== */
+
+.evaluation-result {
+
+    display: grid;
+
+    gap: 10px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    margin-bottom: 22px;
+}
+
+
+.result-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+
+.result-item:last-child {
+
+    border-bottom: none;
+}
+
+
+.result-label {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #6b7280;
+
+    min-width: 130px;
+}
+
+
+.result-status {
+
+    font-weight: 700;
+}
+
+
+#failure-detected {
+
+    font-weight: 600;
+}
+
+
+#failure-type {
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+#failure-explanation {
+
+    color: #374151;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-align: right;
+
+    max-width: 65%;
+}
+
+
+/* =====================================================
+   EVALUATION SUMMARY
+===================================================== */
+
+.evaluation-summary {
+
+    margin-top: 20px;
+}
+
+
+.evaluation-summary h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+
+    color: #1f2937;
+}
+
+
+.summary-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+
+.summary-card {
+
+    padding: 18px 10px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+.summary-number {
+
+    display: block;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+    margin-bottom: 5px;
+}
+
+
+.summary-label {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+
+/* =====================================================
+   EVALUATION MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .evaluation-section {
+
+        margin-top: 25px;
+
+        padding: 18px;
+    }
+
+
+    .evaluation-controls {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .evaluation-controls select {
+
+        min-width: 100%;
+    }
+
+
+    #run-evaluation-button {
+
+        width: 100%;
+    }
+
+
+    .evaluation-details {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .evaluation-field.full-width {
+
+        grid-column: auto;
+    }
+
+
+    .summary-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .result-item {
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+
+    #failure-explanation {
+
+        max-width: 100%;
+
+        text-align: left;
+    }
+
+}
