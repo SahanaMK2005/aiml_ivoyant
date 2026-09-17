@@ -238,7 +238,7 @@ def show_pipeline(results: dict[str, Any]) -> None:
         with tab:
             st.write(results[key])
 
-    st.subheader("3. Tokenization and stop-word removal")
+    st.subheader("3. Tokenization and the  stop-words removal")
     token_column, stopword_column = st.columns(2)
     with token_column:
         st.markdown(f"**Tokens ({len(results['tokens'])})**")
